@@ -1,17 +1,17 @@
 import React , {useState} from "react";
 
 
-export default function CreateToDo ({ user , tasks , setTasks }) {
-
-    const [description, setDescription] = useState("");
+export default function CreateToDo ({ user , tasks , dispatch }) {
+    
     const [title, setTitle ] = useState("");
+    const [description, setDescription] = useState("");
+    
 
     function handleTitle(evt) {setTitle(evt.target.value)}
     function handleDescription (evt) { setDescription(evt.target.value)}
 
     function handleCreate (evt) {  
-        const newTask = { title, description, dateCreated: Date.now() , dateCompleted: null, completed : false}
-        setTasks([newTask, ...tasks])
+        dispatch({type: 'CREATE_POST', title, description })
       }
 
     return (
