@@ -11,11 +11,12 @@ export default function CreateToDo ({ user , tasks , dispatch }) {
     function handleDescription (evt) { setDescription(evt.target.value)}
 
     function handleCreate (evt) {  
+
         dispatch({type: 'CREATE_POST', title, description })
       }
 
     return (
-            <form onSubmit={(e) => { e.preventDefault();handleCreate(e);}}>            
+            <form onSubmit={(e) => { e.preventDefault(); handleCreate(e) }}>            
             <div>
                 <input value={title} type="text" onChange={handleTitle} placeholder="Enter title..."  required/>
             </div>

@@ -12,7 +12,7 @@ export default function ToDoList({ tasks = [] , setTasks }) {
     return (
         <div>
       {tasks.map((p, i) => (
-        <ToDo {...p} id = {i} key={"toDo-" + i} />
+        <ToDo title = {p.title} description = {p.description} id = {i} key={"toDo-" + i} />
       ))}
     </div>
     );

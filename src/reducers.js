@@ -15,7 +15,7 @@ function taskReducer(state, action) {
         case 'CREATE_POST':
         const newPost = {
             title: action.title,
-            description: action.description
+            description: action.description,
         };
         return [newPost, ...state];
         // case 'DELETE_POST':
@@ -30,6 +30,6 @@ function taskReducer(state, action) {
 export default function appReducer (state, action) {
     return {
         user: userReducer(state.user, action),
-        tasks: taskReducer(state.posts, action)
+        tasks: taskReducer(state.tasks, action)
     }
 }
