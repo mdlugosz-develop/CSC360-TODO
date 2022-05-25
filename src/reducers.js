@@ -12,15 +12,24 @@ function userReducer(state, action) {
 
 function taskReducer(state, action) {
     switch(action.type) {
-        case 'CREATE_POST':
+        case 'CREATE_TASK':
         const newPost = {
             title: action.title,
             description: action.description,
+            dateCreated: action.dateCreated,
+            dateCompleted: action.dateCompleted,
+            completed: action.completed,
+            id: action.id
         };
         return [newPost, ...state];
-        // case 'DELETE_POST':
-        //   // implement logic for deleting post
-        //   return state.filter(post => post.id != action.id)
+        case 'TOGGLE_TASK':
+            return action.updatedTasks
+
+
+
+        case 'DELETE_TASK':
+            return action.updatedTasks
+
         default:
         return state;
     }

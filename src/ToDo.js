@@ -1,28 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default function ToDo({ title, description , dateCreated, dateCompleted, complete, id, updateTodo }){
+export default function ToDo({ title, description , dateCreated, dateCompleted, completed, id, updateTask, deleteTask }){
     
-    // function handleCheckbox(event){
-    //     const newToDo = {
-    //         title,
-    //         description, 
-    //         dateCreated,
-    //         dateCompleted: Date.now(),
-    //         complete: event.target.checked,
-    //     }
-    //     updateTodo(id, newToDo)
-    //     console.log("checked")
-    // }
+    const [checked, updateCheck] = useState(false)
+    
+    const handleCheckbox = (event) => {
 
+        updateCheck(event.target.checked)
+        const updatedTask = {title, description ,dateCreated, id, dateCompleted: Date.now(), completed: !completed}
+        updateTask(id, updatedTask)
+    }
 
     return (
         <div>
             <h3>{title}</h3>
             <div>{description}</div>
             <br/>
-            {/* <div>{dateCreated}</div>
-            <div>{dateCompleted}</div> */}
-            {/* <input type = "checkbox" value ={complete} onChange = {handleCheckbox} /> */}
+            <div>Date Created: {new Date(dateCreated).toDateString() }</div>
+            <div>Date Completed: {completed ? new Date(dateCompleted).toDateString() : 'Not yet completed'}</div>
+            <input type = "checkbox" value ={checked} onClick = {handleCheckbox} />
+            <input type = "button" value = "Delete Task" onClick={() => deleteTask(id)}/>
         </div>
     );
        

@@ -1,6 +1,9 @@
-import React , {useState} from "react";
+import React , { useContext, useState} from "react";
+import StateContext from "./context";
 
-export default function Register({dispatch}) {
+export default function Register() {
+
+    const {dispatch} = useContext(StateContext);
     
     const [ formData, setFormData ] = useState({
         username: "",

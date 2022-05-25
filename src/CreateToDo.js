@@ -1,7 +1,10 @@
-import React , {useState} from "react";
+import React , {useContext, useState} from "react";
+import StateContext from "./context";
 
 
-export default function CreateToDo ({ user , tasks , dispatch }) {
+export default function CreateToDo () {
+
+    const {dispatch} = useContext(StateContext);
     
     const [title, setTitle ] = useState("");
     const [description, setDescription] = useState("");
@@ -12,7 +15,7 @@ export default function CreateToDo ({ user , tasks , dispatch }) {
 
     function handleCreate (evt) {  
 
-        dispatch({type: 'CREATE_POST', title, description })
+        dispatch({type: 'CREATE_TASK', title, description, dateCreated: Date.now(), dateCompleted: undefined, completed: false, id: Math.floor(Math.random() * 1000000) })
       }
 
     return (
