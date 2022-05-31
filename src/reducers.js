@@ -27,7 +27,8 @@ function taskReducer(state, action) {
             return action.updatedTasks
         case 'DELETE_TASK':
             return action.updatedTasks
-
+        case 'FETCH_TASKS':
+            return action.tasks
         default:
         return state;
     }

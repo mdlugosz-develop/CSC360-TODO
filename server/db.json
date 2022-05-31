@@ -1,38 +1,10 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "portal",
-      "content": "Some content"
-    },
-    {
-      "id": 2,
-      "title": "hello",
-      "content": "Some content"
-    },
-    {
-      "title": "fsfiwfeiuhuwh",
-      "content": "jfoijrfiowjoeifjwiojf",
-      "id": 3
-    },
-    {
-      "title": "PostTest",
-      "content": "PostTest",
-      "id": 4
-    }
-  ],
+  "tasks": [],
   "users": [
     {
-      "id": 1,
-      "username": "paul",
-      "password": "badpassword"
-    }
-  ],
-  "themes": [
-    {
-      "id": 1,
-      "primaryColor": "deepskyblue",
-      "secondaryColor": "coral"
+      "username": "Matthew",
+      "password": "Matthew1",
+      "id": 1
     }
   ]
 }

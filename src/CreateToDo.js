@@ -1,4 +1,5 @@
 import React , {useContext, useState} from "react";
+import { useResource } from "react-request-hook";
 import StateContext from "./context";
 
 
@@ -13,8 +14,16 @@ export default function CreateToDo () {
     function handleTitle(evt) {setTitle(evt.target.value)}
     function handleDescription (evt) { setDescription(evt.target.value)}
 
+
+    const [ task, createTask ] = useResource(({title, description, author}) => ({
+        url: '/tasks',
+        method: 'post',
+        data: {title, description, author}
+      }))
+
     function handleCreate (evt) {  
 
+        createTask({title,description, author: state.user})
         dispatch({type: 'CREATE_TASK',author: state.user, title, description, dateCreated: Date.now(), dateCompleted: undefined, completed: false, id: Math.floor(Math.random() * 1000000) })
       }
 
