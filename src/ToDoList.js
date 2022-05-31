@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useResource } from "react-request-hook";
 import StateContext from "./context";
 import ToDo from "./ToDo"
 
@@ -13,9 +14,17 @@ export default function ToDoList() {
       dispatch({ type: "TOGGLE_TASK", updatedTasks})
     }
 
-    const deleteTask = (id) => {
+
+    const [task ,deleteT] = useResource((id) => ({
+      url: `/tasks/${id}`,
+      method: 'DELETE'
+    }))
+
+    const deleteTask = (id,title) => {
       const updatedTasks = state.tasks.filter((task) => task.id !== id)
+      deleteT(id)
       dispatch({type: "DELETE_TASK", updatedTasks})
+      
     }
 
     return (

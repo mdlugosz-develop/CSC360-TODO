@@ -19,7 +19,7 @@
     "eject": "react-scripts eject",
     "start:client": "react-scripts start",
     "start:server": "npx json-server --watch server/db.json --port 4000 --routes server/routes.json",
-    "start": "npm run start:server npm run start:client"
+    "start": "npx concurrently \"npm run start:server\" \"npm run start:client\""
   },
   "eslintConfig": {
     "extends": [
