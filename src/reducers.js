@@ -14,6 +14,7 @@ function taskReducer(state, action) {
     switch(action.type) {
         case 'CREATE_TASK':
         const newPost = {
+            author: action.author,
             title: action.title,
             description: action.description,
             dateCreated: action.dateCreated,
@@ -24,9 +25,6 @@ function taskReducer(state, action) {
         return [newPost, ...state];
         case 'TOGGLE_TASK':
             return action.updatedTasks
-
-
-
         case 'DELETE_TASK':
             return action.updatedTasks
 

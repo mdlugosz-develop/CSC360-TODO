@@ -21,7 +21,7 @@ export default function ToDoList() {
     return (
         <div>
       {state.tasks.map((p, i) => (
-        <ToDo {...p} key = {p.id} updateTask = {updateTask } deleteTask = {deleteTask}/>
+        <ToDo {...p} key = {p.id} updateTask = {updateTask} deleteTask = {deleteTask}/>
       ))}
     </div>
     );

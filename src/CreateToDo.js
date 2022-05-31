@@ -4,7 +4,7 @@ import StateContext from "./context";
 
 export default function CreateToDo () {
 
-    const {dispatch} = useContext(StateContext);
+    const {state, dispatch} = useContext(StateContext);
     
     const [title, setTitle ] = useState("");
     const [description, setDescription] = useState("");
@@ -15,7 +15,7 @@ export default function CreateToDo () {
 
     function handleCreate (evt) {  
 
-        dispatch({type: 'CREATE_TASK', title, description, dateCreated: Date.now(), dateCompleted: undefined, completed: false, id: Math.floor(Math.random() * 1000000) })
+        dispatch({type: 'CREATE_TASK',author: state.user, title, description, dateCreated: Date.now(), dateCompleted: undefined, completed: false, id: Math.floor(Math.random() * 1000000) })
       }
 
     return (

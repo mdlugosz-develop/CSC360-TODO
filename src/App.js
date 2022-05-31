@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import UserBar from "./UserBar";
 import CreateToDo from "./CreateToDo";
 import appReducer from "./reducers";
@@ -11,9 +11,15 @@ function App() {
 
   const [ state, dispatch ] = useReducer(appReducer, { user: '', tasks: [] })
 
-  return (
+  useEffect(() => {
+    if(state.user) {
+      document.title = `${state.user}'s Tasks`
+    } else {
+      document.title = 'Tasks'
+    }
+  }, [state.user])
 
-    <div>
+  return (
 
       <StateContext.Provider value={{state, dispatch}}>
         <UserBar/>
@@ -21,8 +27,6 @@ function App() {
         <h1>ToDo List</h1>
         <ToDoList/>
       </StateContext.Provider> 
-    </div>
-      
   );
 }
 
