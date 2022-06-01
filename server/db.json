@@ -1,29 +1,18 @@
 {
-  "tasks": [
-    {
-      "title": "one",
-      "description": "fsefsefsefsef",
-      "author": "Matthew",
-      "id": 1
-    },
-    {
-      "title": "TWO",
-      "description": "efwefwefwefcdec",
-      "author": "Matthew",
-      "id": 2
-    },
-    {
-      "title": "THree",
-      "description": "efnwhefhowefiowef",
-      "author": "Matthew",
-      "id": 3
-    }
-  ],
+  "tasks": [],
   "users": [
     {
       "username": "Matthew",
       "password": "Matthew1",
       "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "username": "Dlugi",
+      "password": "Matthew2",
+      "id": 3
     }
   ]
 }

@@ -15,15 +15,15 @@ export default function CreateToDo () {
     function handleDescription (evt) { setDescription(evt.target.value)}
 
 
-    const [ task, createTask ] = useResource(({title, description, author}) => ({
+    const [ task, createTask ] = useResource(({title, description, author, dateCreated}) => ({
         url: '/tasks',
         method: 'post',
-        data: {title, description, author}
+        data: {title, description, author, dateCreated}
       }))
 
     function handleCreate (evt) {  
 
-        createTask({title,description, author: state.user})
+        createTask({title,description, author: state.user, dateCreated: Date.now()})
         dispatch({type: 'CREATE_TASK',author: state.user, title, description, dateCreated: Date.now(), dateCompleted: undefined, completed: false, id: Math.floor(Math.random() * 1000000) })
       }
 

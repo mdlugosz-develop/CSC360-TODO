@@ -15,7 +15,7 @@ export default function Register() {
     const [ user, register ] = useResource((username, password) => ({
       url: '/users',
       method: 'post',
-      body: { username, password }
+      data: { username, password }
     }))
     
     useEffect(() => {
